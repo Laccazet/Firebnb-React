@@ -1,13 +1,64 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root, #App {
+    height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#App {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: rgb(95, 95, 95);
+}
+
+.sign-in {
+    width: 350px;
+    height: 100%;
+    border: solid 1px #FFA41B;
+    border-radius: 30px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-container {
+    width: 85%;
+    height: 50px;
+    border: solid 1px #FFA41B;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.sign-input {
+    width: 82%;
+    height: 40px;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.sign-button {
+    width: 85%;
+    height: 50px;
+    background-color: #FFA41B;
+    border: solid 2px #FFA41B;
+    border-radius: 15px;
+    color: white;
 }
