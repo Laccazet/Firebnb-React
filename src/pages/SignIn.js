@@ -2,6 +2,7 @@ import { PiUserLight, PiKeyThin, PiEyeThin } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { mainContext } from "../context/mainContext";
+import OAuth from "../components/OAuth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 
@@ -33,8 +34,6 @@ export default function SignIn() {
       const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      console.log();
       
       if (user) {
         setLoading(false);
@@ -44,10 +43,13 @@ export default function SignIn() {
 
     } catch (error) {
       setLoading(false);
+      console.log(error);
       toast.error("Wrong user credential");
     }
 
   }
+
+
   return (
     <div className="w-full h-full flex-center gap-10">
 
@@ -66,11 +68,13 @@ export default function SignIn() {
             <PiEyeThin size={20} className="cursor-pointer" onClick={() => setVisible(prev => !prev) } />
           </div>
 
-          <Link to={"/forgot-password"} className="w-[290px] flex justify-start items-center text-[#FFA41B] mb-10">
+          <Link to={"/forgot-password"} className="w-[290px] flex justify-start items-center text-[#FFA41B] mb-7">
             <p className="text-sm">Forgot your password?</p>
           </Link>
 
           <button className="sign-button hover:bg-transparent hover:text-black transition-all" type="submit">Sign In</button>
+
+          <OAuth />
 
           <Link to={"/sign-up"} className="w-[290px] flex-center text-[#FFA41B]">
             <p>Sign Up Instead</p>

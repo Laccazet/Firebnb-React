@@ -7,6 +7,7 @@ import PriviteRoute from "./components/PriviteRoute";
 import Explore from "./pages/Explore";
 import Offers from "./pages/Offers";
 import Profile from "./pages/Profile";
+import Category from "./pages/Category";
 import Search from "./pages/Search";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -23,6 +24,7 @@ export default function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Explore />} />
+              <Route path="/category/:categoryName" element={<Category />} />
               <Route path="/offers" element={<Offers />} />
               <Route path="/search" element={<Search />} />
               <Route path="/profile" element={<PriviteRoute />}>

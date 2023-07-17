@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root, #App {
+html, body {
     height: 100%;
+}
+
+#root {
+    min-height: 100%;
 }
 
 #App {
@@ -41,7 +45,7 @@ html, body, #root, #App {
     border: solid 1px #FFA41B;
     border-radius: 20px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 5px;
 }
@@ -61,6 +65,7 @@ html, body, #root, #App {
     border: solid 2px #FFA41B;
     border-radius: 15px;
     color: white;
+    margin-bottom: 20px;
 }
 
 .log-out-button {
@@ -70,4 +75,13 @@ html, body, #root, #App {
     border: solid 2px #FF491B;
     border-radius: 15px;
     color: white;
+}
+
+.category-item:hover .category-image {
+    background-color: #FFA41B;
+}
+
+.category-image {
+    border: solid 1px #FFA41B;
+    border-radius: 25px;
 }

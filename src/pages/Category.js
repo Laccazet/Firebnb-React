@@ -1,14 +1,17 @@
 import { useEffect, useState, useContext } from "react";
 import { mainContext } from "../context/mainContext";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { collection, getDocs, query, where, orderBy, limit, startAfter } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
 
-export default function Offers() {
+
+
+export default function Category() {
 
   const params = useParams();
+  const location = useLocation();
   const [listings, setListings] = useState([]);
   const {setLoading} = useContext(mainContext);
 
@@ -24,7 +27,7 @@ export default function Offers() {
         // Create a query
         const q = query(
           listingsRef,
-          where("offer", "==", true),
+          where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
           limit(10)
           )
@@ -62,17 +65,13 @@ export default function Offers() {
   return (
     <div className="w-full h-full flex-center flex-col">
       <div className="w-[1370px] h-20">
-        <h1 className="text-[40px] p-5">Offers</h1>
+        <h1 className="text-[40px] p-5">{location === "rooms" ? "Rooms" : "Houses"}</h1>
       </div>
       <div className="w-[1370px] flex justify-start items-center flex-wrap gap-5 p-5">
-        {listings.length > 0 ? (
-          listings.map((item) => {
-            return <ListingItem key={item.id} listing={item.data} id={item.id} />
-          })
-        ) : (
-          <p>There are no current offers</p>
-        )}
+        {listings.map((item) => {
+          return <ListingItem key={item.id} listing={item.data} id={item.id} />
+        })}
       </div>
     </div>
   )
-  }
+}

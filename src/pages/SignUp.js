@@ -2,6 +2,7 @@ import { PiIdentificationCardThin, PiUserLight, PiKeyThin, PiEyeThin } from "rea
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { mainContext } from "../context/mainContext";
+import OAuth from "../components/OAuth";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
@@ -83,6 +84,8 @@ export default function SignUp() {
           </div>
 
           <button className="sign-button hover:bg-transparent hover:text-black transition-all" type="submit">Sign Up</button>
+
+          <OAuth />
 
           <Link to={"/sign-in"} className="w-[290px] flex-center text-[#FFA41B]">
             <p>Sign In Instead</p>
