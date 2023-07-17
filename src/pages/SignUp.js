@@ -1,12 +1,16 @@
 import { PiIdentificationCardThin, PiUserLight, PiKeyThin, PiEyeThin } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { mainContext } from "../context/mainContext";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import db from "../firebase.config";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase.config";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
 
   const navigate = useNavigate();
+  const {setLoading} = useContext(mainContext);
 
   const [visible, setVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,16 +32,28 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
       const user = userCredential.user;
+
       updateProfile(auth.currentUser, {
         displayName: name
       })
+
+      const copyFormData = {...formData};
+      delete copyFormData.password;
+      copyFormData.timestamp = serverTimestamp();
+
+      await setDoc(doc(db, "users", user.uid), copyFormData);
+      setLoading(false);
       navigate("/");
+      toast.success("Signed Up!")
 
     } catch (error) {
-      console.log(error)
+      setLoading(false);
+      toast.error("Something went wrong");
     }
 
   }

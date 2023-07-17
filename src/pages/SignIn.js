@@ -1,8 +1,14 @@
 import { PiUserLight, PiKeyThin, PiEyeThin } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { mainContext } from "../context/mainContext";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
+
+  const navigate = useNavigate();
+  const {setLoading} = useContext(mainContext);
 
   const [visible, setVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,11 +25,34 @@ export default function SignIn() {
     }))
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      console.log();
+      
+      if (user) {
+        setLoading(false);
+        navigate("/");
+        toast.success("Signed In!")
+      }
+
+    } catch (error) {
+      setLoading(false);
+      toast.error("Wrong user credential");
+    }
+
+  }
   return (
     <div className="w-full h-full flex-center gap-10">
 
       <div className="w-[500px] h-[500px] flex-center">
-        <form className="sign-in flex-center shadow-xl">
+        <form className="sign-in flex-center shadow-xl" onSubmit={handleSubmit}>
           <h1 className=" text-[40px]">Sign In</h1>
 
           <div className="input-container">

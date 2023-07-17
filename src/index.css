@@ -62,3 +62,12 @@ html, body, #root, #App {
     border-radius: 15px;
     color: white;
 }
+
+.log-out-button {
+    width: 100px;
+    height: 40px;
+    background-color: #FF491B;
+    border: solid 2px #FF491B;
+    border-radius: 15px;
+    color: white;
+}
