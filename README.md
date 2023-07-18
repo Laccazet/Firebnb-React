@@ -1,3 +1,20 @@
+# Firebnb
+A react app like airbnb, made using Firebase, where you can rent a house or a room.
+
+Tools I used:
+- Firebase
+- React
+- React Icons
+- Tailwind
+
+Screenshots
+- ![desktop](https://github.com/Laccazet/Frello-React/assets/43687373/f2714168-d00f-49bf-bdab-4b85addfbaf8)
+
+- ![mobile1](https://github.com/Laccazet/Frello-React/assets/43687373/d7fabb72-75da-4814-b784-33def4fb8243)
+
+- ![mobile2](https://github.com/Laccazet/Frello-React/assets/43687373/70e6a408-be9c-46be-aa82-ca0cce3b1cd5)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

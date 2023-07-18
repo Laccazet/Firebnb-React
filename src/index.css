@@ -85,3 +85,74 @@ html, body {
     border: solid 1px #FFA41B;
     border-radius: 25px;
 }
+
+.create-section {
+    width: 100%;
+    height: 80px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.create-button {
+    width: 100px;
+    height: 40px;
+    border: solid 1px #FFA41B;
+    border-radius: 10px;
+}
+
+.selected-create-button {
+    background-color: #FFA41B;
+}
+
+.create-input {
+    width: 90%;
+    height: 40px;
+    font-size: 17px;
+    outline: none;
+    border: solid 1px #FFA41B;
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+}
+
+.create-number-input {
+    width: 70px;
+}
+
+.input-file-section {
+    height: 100px;
+}
+
+.input-file {
+    width: 90%;
+    height: 50px;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #FFA41B;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+
+input[type=file] {
+    border: solid 1px #FFA41B;
+    border-radius: 10px;
+}
+  
+input[type=file]::file-selector-button:hover {
+    background: #FFA41B;
+}
+
+.hide {
+    display: none;
+}
+
+.listing-info {
+    border: solid 1px #FFA41B;
+}

@@ -51,7 +51,7 @@ export default function SignIn() {
 
 
   return (
-    <div className="w-full h-full flex-center gap-10">
+    <div className="w-full h-[700px] flex-center gap-10">
 
       <div className="w-[500px] h-[500px] flex-center">
         <form className="sign-in flex-center shadow-xl" onSubmit={handleSubmit}>
@@ -83,7 +83,7 @@ export default function SignIn() {
         </form>
       </div>
 
-      <div className="w-[500px] h-[500px] flex-center flex-col">
+      <div className="w-[500px] h-[500px] hidden xmd:flex justify-center items-center flex-col">
         <img src={require("../assets/icon.png")} alt="" width={350} />
         <h1 className="font-bold text-[#FFA41B] text-[70px]">Firebnb</h1>
         <h1 className="text-[#FFA41B] text-[30px]">Welcome</h1>

@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { mainContext } from "../context/mainContext";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where, orderBy, limit, startAfter } from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy, limit } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
@@ -61,10 +61,10 @@ export default function Offers() {
 
   return (
     <div className="w-full h-full flex-center flex-col">
-      <div className="w-[1370px] h-20">
+      <div className="w-[290px] sm:w-[560px] xmd:w-[830px] lg:w-[1100px] h-20">
         <h1 className="text-[40px] p-5">Offers</h1>
       </div>
-      <div className="w-[1370px] flex justify-start items-center flex-wrap gap-5 p-5">
+      <div className="w-[290px] sm:w-[560px] xmd:w-[830px] lg:w-[1100px] flex justify-start items-center flex-wrap gap-5 p-5 mb-10">
         {listings.length > 0 ? (
           listings.map((item) => {
             return <ListingItem key={item.id} listing={item.data} id={item.id} />

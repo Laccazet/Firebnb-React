@@ -28,9 +28,9 @@ export default function ForgotPassword() {
   }
 
   return (
-    <div className="w-full h-full flex-center">
+    <div className="w-full h-[500px] flex-center">
       <form onSubmit={handleSubmit}
-      className="w-[400px] h-[250px] flex-center flex-col gap-5 border-[1px] border-[#FFA41B] rounded-3xl shadow-md">
+      className="w-[350px] xmd:w-[400px] h-[250px] flex-center flex-col gap-5 border-[1px] border-[#FFA41B] rounded-3xl shadow-md">
         <h1 className="text-2xl text-[#FFA41B] font-bold">Forgot Password</h1>
         <div className="input-container">
           <PiUserLight />
